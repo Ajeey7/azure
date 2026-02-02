@@ -1,3 +1,7 @@
+/**
+ * Weather App JavaScript Module
+ * Handles weather data fetching and UI updates
+ */
 class WeatherApp {
     constructor() {
         this.apiKey = 'YOUR_API_KEY'; // Du behöver skaffa en API-nyckel från OpenWeatherMap
