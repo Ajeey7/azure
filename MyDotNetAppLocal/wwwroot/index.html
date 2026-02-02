@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Väderapp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Väderapp</h1>
+            <div class="location-input">
+                <input type="text" id="locationInput" placeholder="Ange stad..." value="Stockholm">
+                <button onclick="getWeather()"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+
+        <main>
+            <div class="current-weather" id="currentWeather">
+                <div class="loading">Laddar väderdata...</div>
+            </div>
+
+            <div class="forecast-section">
+                <h2>5-dagars prognos</h2>
+                <div class="forecast-container" id="forecastContainer">
+                    <div class="loading">Laddar prognos...</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Väderapp - Drivs med .NET och Azure</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
