@@ -1,8 +1,22 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+// Add HttpClient factory
+builder.Services.AddHttpClient();
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -13,6 +27,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseCors();
+
+// Enable controllers
+app.MapControllers();
 
 var summaries = new[]
 {
@@ -33,7 +52,10 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapGet("/", () => "API is running in Azure");
+app.MapGet("/", () => {
+    // Redirectera till index.html
+    return Results.Redirect("/index.html");
+});
 
 app.Run();
 
