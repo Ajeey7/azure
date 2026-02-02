@@ -1,0 +1,12 @@
+name: MyDotNetAppLocal
+services:
+  - type: web
+    name: weatherapp
+    runtime: dotnet
+    plan: free
+    buildCommand: dotnet publish -c Release -o ./publish
+    runCommand: dotnet ./publish/MyDotNetAppLocal.dll
+    env:
+      - name: ASPNETCORE_ENVIRONMENT
+        value: Production
+    autoDeploy: true
