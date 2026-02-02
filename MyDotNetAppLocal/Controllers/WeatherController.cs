@@ -5,6 +5,9 @@ using System.Text.Json.Serialization;
 
 namespace MyDotNetAppLocal.Controllers
 {
+    /// <summary>
+    /// Weather API Controller for handling weather data requests
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class WeatherController : ControllerBase
